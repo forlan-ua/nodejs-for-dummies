@@ -3,7 +3,7 @@ const http = require("http");
 
 
 exports.getJson = function(url, callback) {
-    if (url.test(/^https/)) {
+    if (/^https/.test(url)) {
         var method = https.get;
     } else {
         var method = http.get;
@@ -14,9 +14,9 @@ exports.getJson = function(url, callback) {
             res.resume();
             return callback(new Error(`Only 200 status code is allowed. Got ${res.statusCode}`))
         }
-        if (res.getResponseHeader("Content-Type") !== "application/json") {
+        if (!/^application\/json/.test(res.headers["content-type"])) {
             res.resume();
-            return callback(new Error(`Only application/json content type is allowed. Got ${res.getResponseHeader("Content-Type")}`))
+            return callback(new Error(`Only application/json content type is allowed. Got ${res.headers["content-type"]}`))
         }
 
         var data = "";

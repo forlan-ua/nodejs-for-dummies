@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-for-dummies",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "description": "Resources for NodeJS for dummies",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forlan-ua/nodejs-for-dummies.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^2.5.3"
+  }
+}
